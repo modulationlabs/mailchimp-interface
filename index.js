@@ -1,8 +1,8 @@
-import * as Express from 'express';
-import * as Mailchimp from 'mailchimp-api-v3';
+import Express from 'express';
+import Mailchimp from 'mailchimp-api-v3';
 import * as BodyParser from 'body-parser';
 import { MAILCHIMP_API_KEY, MAILCHIMP_LIST_ID } from './config';
-
+console.log('KEY: ', MAILCHIMP_API_KEY);
 const MAILCHIMP_API_BASE_URL = 'https://api.mailchimp.com';
 const MAILCHIMP_ENDPOINT = `${MAILCHIMP_API_BASE_URL}/3.0/lists/${MAILCHIMP_LIST_ID}/members/`;
 

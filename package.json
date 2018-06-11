@@ -5,17 +5,17 @@
   "main": "mailchimp-api.js",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^4.15.3",
+    "express": "^4.16.3",
     "mailchimp-api-v3": "^1.7.0"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0",
-    "ts-node": "^3.0.4",
-    "typescript": "^2.3.3"
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "nodemon": "^1.11.0"
   },
   "scripts": {
-    "start": "npm run build:live",
-    "build:live": "nodemon --exec ./node_modules/.bin/ts-node -- ./index.ts",
+    "build": "babel index.js -d build",
+    "start": "nodemon index.js --exec babel-node",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
