@@ -1,14 +1,12 @@
-const Mailchimp = require('mailchimp-api-v3')
-const Express = require('express');
-const BodyParser = require('body-parser');
-
+import express from 'express';
+import Mailchimp from 'mailchimp-api-v3';
+import * as BodyParser from 'body-parser';
 import { MAILCHIMP_API_KEY, MAILCHIMP_LIST_ID } from './config';
-
 const MAILCHIMP_API_BASE_URL = 'https://api.mailchimp.com';
 const MAILCHIMP_ENDPOINT = `${MAILCHIMP_API_BASE_URL}/3.0/lists/${MAILCHIMP_LIST_ID}/members/`;
 
 const mailchimp = new Mailchimp(MAILCHIMP_API_KEY);
-const app = Express();
+const app = express();
 
 function handleEmail(email) {
   return new Promise((resolve, reject) => {
@@ -34,12 +32,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.post('/api/mailchimp/', function (req, res) {
+app.post('/api/mailchimp/', async function (req, res) {
   let email = req.body.email;
   console.log(req.body);
   if (!email) return;
-  //let result = await 
-  // handleEmail(email).then(result => res.status(200).json({ status: result }));
+  let result = await handleEmail(email) // .then(result => res.status(200).json({ status: result }));
   res.json({ status: result });
 });
 
