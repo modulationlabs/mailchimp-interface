@@ -1,4 +1,4 @@
-import Express from 'express';
+import express from 'express';
 import Mailchimp from 'mailchimp-api-v3';
 import * as BodyParser from 'body-parser';
 import { MAILCHIMP_API_KEY, MAILCHIMP_LIST_ID } from './config';
@@ -7,7 +7,7 @@ const MAILCHIMP_API_BASE_URL = 'https://api.mailchimp.com';
 const MAILCHIMP_ENDPOINT = `${MAILCHIMP_API_BASE_URL}/3.0/lists/${MAILCHIMP_LIST_ID}/members/`;
 
 const mailchimp = new Mailchimp(MAILCHIMP_API_KEY);
-const app = Express();
+const app = express();
 
 function handleEmail(email) {
   return new Promise((resolve, reject) => {
