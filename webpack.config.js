@@ -52,7 +52,7 @@ module.exports = {
 	stats: 'errors-only',  // lets you precisely control what bundle information gets displayed
 	devServer: {
 		proxy: { // proxy URLs to backend development server
-			'/api': 'http://localhost:3001'
+			'/api': 'http://localhost:3001/api'
 		},
 		contentBase: path.join(__dirname, 'public'), // boolean | string | array, static file location
 		compress: true, // enable gzip compression
